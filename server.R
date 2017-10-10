@@ -12,7 +12,6 @@ function (input, output, session) {
                   "Middle Income Repayment Rate (3yr %)",
                   "High Income Repayment Rate (3yr %)",
                   "Default Rate (%)",
-#                  "Repayment Rate (7yr %)",
                   "Loans (%)",
                   "Pell Grants (%)")
   
@@ -90,7 +89,6 @@ function (input, output, session) {
   }
   
   output$mapPlot <- renderLeaflet({
-    #print(head(as.data.frame(state_data[,input$mapVal])))
     if (input$mapVal %in% percentages) {
       mypalette <- colorBin(c('#fee0d2',
                             '#fcbba1',
@@ -132,12 +130,6 @@ function (input, output, session) {
       ) %>% lapply(htmltools::HTML)
     }
 
-#    if (input$mapVal %in% percentages) {
-#      print(head(1.0 * state_data[, input$mapVal]))
-#    } else{
-#      print(head(state_data[, input$mapVal]))
-#    }
-    
     leaflet() %>%
       addProviderTiles("Esri.WorldTopoMap") %>%
       addPolygons(data = state_map,
