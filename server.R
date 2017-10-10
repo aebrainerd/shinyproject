@@ -50,7 +50,6 @@ function (input, output, session) {
                                                               `Low Income Repayment Rate (3yr %)`=mean(`Low Income Repayment Rate (3yr %)`),
                                                               `Middle Income Repayment Rate (3yr %)`=mean(`Middle Income Repayment Rate (3yr %)`),
                                                               `High Income Repayment Rate (3yr %)`=mean(`High Income Repayment Rate (3yr %)`))
-  #                                                            `Repayment Rate (7yr %)`=mean(`Repayment Rate (7yr %)`))
 
   state_map = map("state", fill=TRUE, plot=FALSE)
   state_data$FullState <- tolower(state.name[match(state_data$State, state.abb)])
@@ -101,7 +100,6 @@ function (input, output, session) {
                                      max(as.data.frame(state_data[, input$mapVal]))),
                           na.color = NA,
                           pretty = TRUE, 
-#                          bins = c(0.40, 0.50, 0.60, 0.70, 0.80, 0.90, 1.0))
                           bins = 6)
     } else {
       mypalette <- colorBin(c('#fee0d2',
