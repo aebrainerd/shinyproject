@@ -28,7 +28,7 @@ shinyUI(
                           fluidRow(plotOutput("densityPlot"))),
                   tabItem(tabName = "map",
                           selectizeInput(inputId = "mapVal",
-                                         label = "Varible to plot:",
+                                         label = "Variable to plot state mean:",
                                          choices = choices),
                           fluidRow(leafletOutput("mapPlot"))),
                   tabItem(tabName = "scatter",
