@@ -7,7 +7,8 @@ choices = c("Admission Rate (%)",
             "Default Rate (%)",
             "Low Income Repayment Rate (3yr %)",
             "Middle Income Repayment Rate (3yr %)",
-            "High Income Repayment Rate (3yr %)")
+            "High Income Repayment Rate (3yr %)",
+            "Median Debt ($)")
 shinyUI(
   dashboardPage(skin = "blue",
                 dashboardHeader(title="College Scorecard"),

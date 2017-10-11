@@ -49,7 +49,8 @@ function (input, output, session) {
                                                               `Default Rate (%)`=mean(`Default Rate (%)`),
                                                               `Low Income Repayment Rate (3yr %)`=mean(`Low Income Repayment Rate (3yr %)`),
                                                               `Middle Income Repayment Rate (3yr %)`=mean(`Middle Income Repayment Rate (3yr %)`),
-                                                              `High Income Repayment Rate (3yr %)`=mean(`High Income Repayment Rate (3yr %)`))
+                                                              `High Income Repayment Rate (3yr %)`=mean(`High Income Repayment Rate (3yr %)`),
+                                                              `Median Debt ($)`=mean(`Median Debt ($)`))
 
   state_map = map("state", fill=TRUE, plot=FALSE)
   state_data$FullState <- tolower(state.name[match(state_data$State, state.abb)])

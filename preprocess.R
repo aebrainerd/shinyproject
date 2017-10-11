@@ -2,7 +2,7 @@ library(dplyr)
 library(reshape2)
 library(DT)
 
-data2015 <- read.csv("/home/aeb/project/CollegeScorecard_Raw_Data/MERGED2014_15_PP.csv", stringsAsFactors=FALSE)
+data2015 <- read.csv("./MERGED2014_15_PP.csv", stringsAsFactors=FALSE)
 
 #Clean the data by eliminating rows which don't contain all the values we want to analyze
 
@@ -62,4 +62,5 @@ cleaned <- cleaned %>% mutate(`Average Tuition ($)`=as.double(`Average Tuition (
                               `High Income Repayment Rate (3yr %)`=as.double(`High Income Repayment Rate (3yr %)`))
 
 #Save the cleaned data
-saveRDS(cleaned, "/home/aeb/project/CollegeScorecard_Raw_Data/cleaned_data.Rda")
+saveRDS(cleaned, "./cleaned_data.Rda")
+
