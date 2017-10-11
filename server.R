@@ -22,6 +22,8 @@ function (input, output, session) {
                  "Average Income (Dependents $)",
                  "Average Income (Independents $)")
   
+  other = c('Students')
+  
   myData <- reactive({
     collegedata %>%
       select(`School Type`, val=input$densityVal)
@@ -50,7 +52,8 @@ function (input, output, session) {
                                                               `Low Income Repayment Rate (3yr %)`=mean(`Low Income Repayment Rate (3yr %)`),
                                                               `Middle Income Repayment Rate (3yr %)`=mean(`Middle Income Repayment Rate (3yr %)`),
                                                               `High Income Repayment Rate (3yr %)`=mean(`High Income Repayment Rate (3yr %)`),
-                                                              `Median Debt ($)`=mean(`Median Debt ($)`))
+                                                              `Median Debt ($)`=mean(`Median Debt ($)`),
+                                                              Students=mean(Students))
 
   state_map = map("state", fill=TRUE, plot=FALSE)
   state_data$FullState <- tolower(state.name[match(state_data$State, state.abb)])
@@ -127,6 +130,11 @@ function (input, output, session) {
         str_to_title(lapply(strsplit(state_data[, "FullState"][["FullState"]], ":"), function (x) {x[[1]]})),
         state_data[, c("FullState", input$mapVal)][[input$mapVal]]
       ) %>% lapply(htmltools::HTML)
+    } else {
+      labels = sprintf("<strong>%s</strong><br/>%.0f",
+        str_to_title(lapply(strsplit(state_data[, "FullState"][["FullState"]], ":"), function (x) {x[[1]]})),
+        state_data[, c("FullState", input$mapVal)][[input$mapVal]]
+      ) %>% lapply(htmltools::HTML)      
     }
 
     leaflet() %>%

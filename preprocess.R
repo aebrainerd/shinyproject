@@ -61,6 +61,8 @@ cleaned <- cleaned %>% mutate(`Average Tuition ($)`=as.double(`Average Tuition (
                               `Middle Income Repayment Rate (3yr %)`=as.double(`Middle Income Repayment Rate (3yr %)`),
                               `High Income Repayment Rate (3yr %)`=as.double(`High Income Repayment Rate (3yr %)`))
 
+cleaned <- cleaned %>% mutate(Students=as.numeric(Students))
+
 #Save the cleaned data
 saveRDS(cleaned, "./cleaned_data.Rda")
 
